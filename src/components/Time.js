@@ -2,9 +2,6 @@ import React from 'react';
 import BotaoGol from './BotaoGol';
 
 class Time extends React.Component {
-    constructor() {
-        super();
-    }
 
     render() {
         return (

@@ -1,9 +1,6 @@
 import React from 'react';
 
 class BotaoGol extends React.Component {
-    constructor() {
-        super();
-    }
 
     handleClick(event) {
         this.props.marcarGol();
@@ -11,7 +8,7 @@ class BotaoGol extends React.Component {
 
     render() {
         return (
-            <button onClick={this.handleClick.bind(this)}>Gol!</button>
+            <button className="btn btn-success" onClick={this.handleClick.bind(this)}>Gol!</button>
         );
     }
 }

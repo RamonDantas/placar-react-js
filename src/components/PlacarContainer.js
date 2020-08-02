@@ -2,6 +2,10 @@ import React from 'react';
 import Time from './Time';
 import Partida from './Partida';
 
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+
 class PlacarContainer extends React.Component {
     constructor() {
         super();
@@ -25,31 +29,38 @@ class PlacarContainer extends React.Component {
 
     render() {
         const { partida, casa, visitante } = this.props;
-        const estilo = {float: "left", "marginRight": "20px"};
         return (
             <div>
 
-                <div style={estilo}>
-                    <h3>Casa</h3>
-                    <Time 
-                        nome={casa.nome} 
-                        gols={this.state.gols_casa}
-                        marcarGol={this.marcarGolCasa.bind(this)}
-                    />
-                </div>  
+                <Container className="p-3">
+                    <Jumbotron>
+                        <Row>
+                            <h1 className="col-12 mb-3 text-center">Placar do Jogo</h1>
 
-                <div style={estilo}>
-                    <Partida {...partida}/>
-                </div>  
+                            <div className="col-4 text-center">
+                                <h3>Casa</h3>
+                                <Time 
+                                    nome={casa.nome} 
+                                    gols={this.state.gols_casa}
+                                    marcarGol={this.marcarGolCasa.bind(this)}
+                                />
+                            </div>  
 
-                <div style={estilo}>
-                    <h3>Visitante</h3>
-                    <Time 
-                        nome={visitante.nome} 
-                        gols={this.state.gols_visitante}
-                        marcarGol={this.marcarGolVisitante.bind(this)}
-                    />
-                </div>
+                            <div className="col-4 text-center">
+                                <Partida {...partida}/>
+                            </div>  
+
+                            <div className="col-4 text-center">
+                                <h3>Visitante</h3>
+                                <Time 
+                                    nome={visitante.nome} 
+                                    gols={this.state.gols_visitante}
+                                    marcarGol={this.marcarGolVisitante.bind(this)}
+                                />
+                            </div>
+                        </Row>
+                    </Jumbotron>
+                </Container>
 
             </div>
         );
